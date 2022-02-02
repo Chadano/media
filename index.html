@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Media Server</title>
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body onload="startTime()">
+
+<video autoplay muted loop id="myVideo">
+  <source src="assets/screensaver.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="clock">
+    <div id="txt"></div>
+</div>
+
+<center>
+<div class="dock">
+    <div class="item">
+        <a href="https://app.plex.tv">
+            <img src="assets/plex.png"/>
+        </a>
+    </div>
+
+    <div class="item">
+        <a href="https://youtube.com">
+            <img src="assets/youtube.png"/>
+        </a>
+    </div>
+
+    <div class="item">
+        <a href="https://netflix.com">
+            <img src="assets/netflix.png"/>
+        </a>
+    </div>
+
+    <div class="item">
+        <a href="https://animedao.to">
+            <img src="assets/animedao.png"/>
+        </a>
+    </div>
+</div>
+</center>
+
+<script>
+    function startTime() {
+      const today = new Date();
+      let h = today.getHours();
+      let m = today.getMinutes();
+      let s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =  h + ":" + m;
+      setTimeout(startTime, 1000);
+    }
+    
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+
+</body>
+</html>
